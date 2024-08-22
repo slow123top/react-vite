@@ -3,12 +3,14 @@ import { createRoot } from "react-dom/client";
 import './Dropdown.css';
 
 export default function Dropdown({ title, data }) {
-    const [show , setShow] = useState(false);
-    const [isPending,startTransition] = useTransition();
+    const [show, setShow] = useState(false);
+    const [isPending, startTransition] = useTransition();
 
     return (
-        <div onClick={function () { startTransition(()=>{
-            setShow(state=>!state)})
+        <div onClick={function () {
+            startTransition(() => {
+                setShow(state => !state)
+            })
         }}>
             <div>{title}</div>
             <DropdownItemList data={data} show={show}></DropdownItemList>
@@ -36,17 +38,19 @@ function DropdownItem({ title, clickEvent }) {
 }
 
 
-function DropdownItemList({data, show}) {
+function DropdownItemList(listData: { data: any[], show: boolean }) {
     const menuRef = useRef(null);
 
-    useEffect(()=>{
-        if(menuRef.current){
+    useEffect(() => {
+        if (menuRef.current) {
             document.body.appendChild(menuRef.current);
         }
     })
-    const dropdownItems = data.map((item: { title: string; clickEvent: () => void; }) => <DropdownItem key={item.title} title={item.title} clickEvent={item.clickEvent}></DropdownItem>);
+    const dropdownItems = listData.data.map((item: { title: string; clickEvent: () => void; }) =>
+        <DropdownItem key={item.title} title={item.title} clickEvent={item.clickEvent}></DropdownItem>);
     return (
-        <div ref={menuRef} className={show ? 'show' : 'hide'}>
+        <div ref={menuRef} className={listData.show ? 'show' : 'hide'} 
+        style={{transition:'2s'}}>
             {dropdownItems}
         </div>
     )
