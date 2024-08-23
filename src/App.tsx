@@ -7,6 +7,7 @@ import StateDemoTime from './demo/StateDemoTime';
 import StateDemoForm from './demo/StateDemoAlice';
 import StateDemoUpdateFunction from './demo/StateDemoUpdateFunction';
 import './App.css'
+import DemoHyTable from './components/demo/HyTable';
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -53,6 +54,8 @@ function App() {
       <StateDemoTime />
       <StateDemoForm></StateDemoForm>
       <StateDemoUpdateFunction />
+
+      <DemoHyTable></DemoHyTable>
     </>
   )
 }
