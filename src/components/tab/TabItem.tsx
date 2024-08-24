@@ -4,7 +4,8 @@ import { LevelContext } from '../Context';
 export default function HyTabItem(tabItemProps: TabItemProps) {
     const { value, title, children } = tabItemProps;
     const parameter: TabItemContext = useContext(LevelContext);
-    function onChangeTabItem(){
+    function onChangeTabItem(e:MouseEvent){
+        e.stopPropagation();
         if(parameter.onChange){
             parameter.onChange(value);
         }

@@ -23,7 +23,8 @@ function createDropMenu(data: { title: string; clickEvent: () => void; }[]) {
     const dropMenu = document.createElement('div');
     dropMenu.classList.add();
     const root = createRoot(dropMenu);
-    const dropdownItems = data.map((item: { title: string; clickEvent: () => void; }) => <DropdownItem title={item.title} clickEvent={item.clickEvent}></DropdownItem>)
+    const dropdownItems = data.map((item: { title: string; clickEvent: () => void; }) => 
+    <DropdownItem title={item.title} clickEvent={item.clickEvent}></DropdownItem>);
     root.render(dropdownItems);
     document.body.appendChild(dropMenu);
 }

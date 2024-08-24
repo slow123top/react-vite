@@ -9,6 +9,7 @@ import StateDemoUpdateFunction from './demo/StateDemoUpdateFunction';
 import './App.css'
 import DemoHyTable from './components/demo/table/base';
 import DemoTab from './components/demo/tab/base';
+import DemoTabData from './components/demo/tab/tab-data';
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -54,6 +55,7 @@ function App() {
       <StateDemoUpdateFunction />
       <DemoHyTable></DemoHyTable>
       <DemoTab></DemoTab>
+      <DemoTabData></DemoTabData>
     </>
   )
 }

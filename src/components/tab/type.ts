@@ -3,13 +3,16 @@ import { ReactNode } from "react";
 export interface TabProps {
     value: string;
     children?: ReactNode[];
-    onChange?:(last:string,current:string) => void; 
+    data?:TabItemProps[] | undefined;
+    onChange?:(last:string,current:string) => void;
+
 }
 
 export interface TabItemProps {
     value:string;
     title:string;
-    children:ReactNode;
+    children?:ReactNode;
+    render?:(value?:any)=>ReactNode;
 }
 
 export type TabItemContext = {
