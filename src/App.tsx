@@ -7,7 +7,8 @@ import StateDemoTime from './demo/StateDemoTime';
 import StateDemoForm from './demo/StateDemoAlice';
 import StateDemoUpdateFunction from './demo/StateDemoUpdateFunction';
 import './App.css'
-import DemoHyTable from './components/demo/HyTable';
+import DemoHyTable from './components/demo/table/base';
+import DemoTab from './components/demo/tab/base';
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -26,9 +27,6 @@ function App() {
     <>
       <div>
         <Dropdown title={"下拉面板展示"} data={data}></Dropdown>
-
-
-
         <Dialog
           open={open}
           close={function () { setOpen(e => !e) }}
@@ -54,8 +52,8 @@ function App() {
       <StateDemoTime />
       <StateDemoForm></StateDemoForm>
       <StateDemoUpdateFunction />
-
       <DemoHyTable></DemoHyTable>
+      <DemoTab></DemoTab>
     </>
   )
 }

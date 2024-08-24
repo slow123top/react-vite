@@ -14,11 +14,16 @@ export interface TableProps {
  * 列类型
  */
 export interface ColumnProps {
+    // 列标识
     colId:string;
+    // 行数据索引
     dataIndex:string;
+    // 标题
     label?:string;
+    // 子组件
     children?: ReactNode;
-    render?:(text:string,dataItem:DataItemProps,index:number) => ReactNode;
+    // 自定义函数
+    render:(text:string,dataItem:DataItemProps,index:number) => ReactNode;
     // [key:string]: string | number | boolean |undefined |object;
 }
 

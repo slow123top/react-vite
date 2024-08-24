@@ -1,6 +1,10 @@
-import HyTable from "../table/Table";
-import HyTableColumn from "../table/TableColumn";
+import HyTable from "../../table/Table";
+import HyTableColumn from "../../table/TableColumn";
 
+/**
+ * 基础示例  使用列模板展示表格数据
+ * @returns 
+ */
 export default function DemoHyTable() {
     const data = [
         { key: 'aa', label: 'AA', name: 'CC' },
