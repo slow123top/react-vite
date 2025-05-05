@@ -9,6 +9,11 @@ export interface TableProps {
     children?: ReactNode[];
 }
 
+/**表格行 */
+export interface TableRowProps {
+    data: DataItemProps;
+    columns: ColumnProps[];
+}
 
 /**
  * 列类型

@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import { LevelContext } from "../Context";
+import HyTableRow from './TableRow';
 import { ColumnProps, DataItemProps, TableProps } from "./type";
 
 function HyTable(tableProps: TableProps) {
@@ -19,16 +19,13 @@ function HyTable(tableProps: TableProps) {
                 </tr>
             </thead>}
             <tbody>
+                {/* column template */}
                 {children ? data.map((dataItem: DataItemProps, index: number) => <tr key={dataItem.key}>
                     <LevelContext.Provider value={{ dataItem, index }}>
                         {children}
                     </LevelContext.Provider>
                 </tr>) :
-                    data.map(dataItem => <tr key={dataItem.key}>
-                        {columns?.map((column: ColumnProps) => <td key={`${dataItem.key}_${column.key}`}>
-                            {dataItem[column.key!] as ReactNode}
-                        </td>)}
-                    </tr>)}
+                    data.map((dataItem: DataItemProps) => <HyTableRow data={dataItem} columns={columns!}></HyTableRow>)}
             </tbody>
             <tfoot></tfoot>
         </table>
