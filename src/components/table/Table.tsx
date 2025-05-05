@@ -1,7 +1,6 @@
-import { Children, createContext, ReactNode } from "react";
-import { TableProps } from "./Table.props";
+import { ReactNode } from "react";
 import { LevelContext } from "../Context";
-import { DataItemProps } from "./type";
+import { ColumnProps, DataItemProps, TableProps } from "./type";
 
 function HyTable(tableProps: TableProps) {
     const columns = tableProps.columns;
@@ -15,7 +14,7 @@ function HyTable(tableProps: TableProps) {
                         return <th key={child.props.colId}>{child.props.label}</th>
                     }) : columns?.map(column => <th key={column.key}>{column.label}</th>)} */}
                     <LevelContext.Provider value={{ isHeader: true }}>
-                        {children ? children : columns?.map(column => <th key={column.key}>{column.label}</th>)}
+                        {children ? children : columns?.map((column: ColumnProps) => <th key={column.key}>{column.label}</th>)}
                     </LevelContext.Provider>
                 </tr>
             </thead>}
@@ -26,13 +25,12 @@ function HyTable(tableProps: TableProps) {
                     </LevelContext.Provider>
                 </tr>) :
                     data.map(dataItem => <tr key={dataItem.key}>
-                        {columns?.map(column => <td key={`${dataItem.key}_${column.key}`}>
-                            {dataItem[column.key] as ReactNode}
+                        {columns?.map((column: ColumnProps) => <td key={`${dataItem.key}_${column.key}`}>
+                            {dataItem[column.key!] as ReactNode}
                         </td>)}
                     </tr>)}
             </tbody>
             <tfoot></tfoot>
-            {/* {tableProps.children} */}
         </table>
     )
 }

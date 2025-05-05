@@ -35,7 +35,8 @@ export default function HyTab(tabProps: TabProps) {
 
 function renderTitleByData(data: TabItemProps[], onChange: (value?: any) => void) {
     return <>
-        {data.map(item => <span key={item.value} onClick={function (e: MouseEvent) { e.stopPropagation(); onChange(item.value) }}>
+        {data.map(item => <span key={item.value} 
+        onClick={function (e: MouseEvent) { e.stopPropagation(); onChange(item.value) }}>
             {item.title}</span>)}
     </>
 }

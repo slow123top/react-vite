@@ -14,6 +14,7 @@ export interface TableProps {
  * 列类型
  */
 export interface ColumnProps {
+    key?: string;
     // 列标识
     colId:string;
     // 行数据索引

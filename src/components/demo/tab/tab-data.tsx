@@ -1,5 +1,4 @@
 import HyTab from "../../tab/Tab"
-import HyTabItem from "../../tab/TabItem"
 import { TabItemProps } from "../../tab/type";
 
 export default function DemoTabData(){
@@ -26,7 +25,7 @@ export default function DemoTabData(){
                     <div>{currentItem.value}</div>
                 </>
         }
-    ]
+    ];
     return <HyTab data={data} value="one" onChange={onChange}>
         
     </HyTab>

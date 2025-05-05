@@ -12,7 +12,7 @@ export default function DemoHyTable() {
     ]
     return <HyTable data={data}>
         <HyTableColumn colId="label" label="标题" dataIndex="label"
-            render={function (text, rowData, index) {
+            render={function (text: string, rowData, index: number) {
                 return <span>{text}</span>
             }}>
         </HyTableColumn>
