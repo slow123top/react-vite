@@ -6,6 +6,7 @@ function HyTable(tableProps: TableProps) {
     const columns = tableProps.columns;
     const data = tableProps.data;
     const children = tableProps.children;
+    const selectedIdSet: Set<string> = new Set();
     return (
         <table>
             {<thead>
@@ -25,7 +26,9 @@ function HyTable(tableProps: TableProps) {
                         {children}
                     </LevelContext.Provider>
                 </tr>) :
-                    data.map((dataItem: DataItemProps) => <HyTableRow data={dataItem} columns={columns!}></HyTableRow>)}
+                    <LevelContext.Provider value={{selectedIdSet}}>
+                        {data.map((dataItem: DataItemProps, index: number) => <HyTableRow index={index} data={dataItem} columns={columns!}></HyTableRow>)}
+                    </LevelContext.Provider>}
             </tbody>
             <tfoot></tfoot>
         </table>

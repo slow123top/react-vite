@@ -12,12 +12,12 @@ export default function DemoHyTable() {
     ]
     return <HyTable data={data}>
         <HyTableColumn colId="label" label="标题" dataIndex="label"
-            render={function (text: string, rowData, index: number) {
+            render={function (text: string) {
                 return <span>{text}</span>
             }}>
         </HyTableColumn>
         <HyTableColumn colId="name" label="名称" dataIndex="name"
-            render={function (text, rowData, index) {
+            render={function (text) {
                 return <span>{text}</span>
             }}>
         </HyTableColumn>

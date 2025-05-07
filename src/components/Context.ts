@@ -1,5 +1,5 @@
 import { createContext } from "react";
-const parameter: any = {}; 
+const parameter = {}; 
 const LevelContext = createContext(parameter);
 
 export { LevelContext };

@@ -6,11 +6,12 @@ import { ReactNode } from "react";
 export interface TableProps {
     columns?: ColumnProps[];
     data: DataItemProps[];
-    children?: ReactNode[];
+    // children?: ReactNode[];
 }
 
 /**表格行 */
 export interface TableRowProps {
+    index: number;
     data: DataItemProps;
     columns: ColumnProps[];
 }
