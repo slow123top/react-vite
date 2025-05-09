@@ -13,7 +13,7 @@ export default function HyTableColumn(columnProps: ColumnProps) {
       {obj.isHeader && <th key={key}>{label}</th>}
       {!obj.isHeader && (
         <td key={key}>
-          {render(obj.dataItem[dataIndex] as string, obj.dataItem, obj.index)}
+          {render?.(obj.dataItem[dataIndex!] as string, obj.dataItem, obj.index)}
         </td>
       )}
     </>

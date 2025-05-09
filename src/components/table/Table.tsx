@@ -7,6 +7,15 @@ function HyTable(tableProps: TableProps) {
     const data = tableProps.data;
     const children = tableProps.children;
     const selectedIdSet: Set<string> = new Set();
+    function renderHeader() {
+        const checkbox = tableProps.selections && <th><input type='checkbox' /></th>;
+        const rowNumber = tableProps.showNumber && <th>序号</th>;
+       return  [
+        checkbox,
+        rowNumber,
+        ...columns!.map((column: ColumnProps) => <th key={column.key}>{column.label}</th>),
+       ];
+    }
     return (
         <table>
             {<thead>
@@ -15,7 +24,7 @@ function HyTable(tableProps: TableProps) {
                         return <th key={child.props.colId}>{child.props.label}</th>
                     }) : columns?.map(column => <th key={column.key}>{column.label}</th>)} */}
                     <LevelContext.Provider value={{ isHeader: true }}>
-                        {children ? children : columns?.map((column: ColumnProps) => <th key={column.key}>{column.label}</th>)}
+                        {children ? children : renderHeader()}
                     </LevelContext.Provider>
                 </tr>
             </thead>}
@@ -26,7 +35,7 @@ function HyTable(tableProps: TableProps) {
                         {children}
                     </LevelContext.Provider>
                 </tr>) :
-                    <LevelContext.Provider value={{selectedIdSet}}>
+                    <LevelContext.Provider value={{selectedIdSet,showNumber: tableProps.showNumber, selections: tableProps.selections}}>
                         {data.map((dataItem: DataItemProps, index: number) => <HyTableRow index={index} data={dataItem} columns={columns!}></HyTableRow>)}
                     </LevelContext.Provider>}
             </tbody>
