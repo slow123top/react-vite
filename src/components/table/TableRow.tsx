@@ -13,18 +13,18 @@ function HyTablRow(props: TableRowProps) {
   } = useContext(LevelContext);
   let hasValue = obj.selectedIdSet.has(data.key);
   function selectRow(e: MouseEvent) {
+    const checked = e.target.checked;
     // const hasValue = obj.selectedIdSet.has(data.key);
     // if(hasValue){
 
     // }
-    // e.target.
     console.log(e);
   }
   return (
     <tr key={data.key}>
       {obj.selections && (
         <td>
-          <input type="checkbox" checked={hasValue} />
+          <input type="checkbox" checked={hasValue} onClick={selectRow}/>
         </td>
       )}
       {obj.showNumber && <td>{rowIndex + 1}</td>}
